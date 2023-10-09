@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Pattaya', sans-serif;
+        }
+
+        body {
+            background-image: url("https://media.istockphoto.com/id/1323823418/photo/low-angle-view-thermometer-on-blue-sky-with-sun-shining.jpg?s=612x612&w=0&k=20&c=LwLCGF902C-DNwKgCMCR12zFnB4g1INWzlk1JPOidRk= ");
+            background-size: cover;
+        }
+
+        .container {
+            width: 500px;
+            background-color: rgba(255, 165, 0, 0.7); /* Orange background color with some transparency */
+            padding: 70px 40px;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 50%;
+            box-shadow: 0 20px 25px rgba(255, 69, 0, 0.7); /* Orange box shadow */
+            border-radius: 8px;
+            font-size: 18px;
+        }
+
+        .title-box {
+            background-color: yellow; /* Yellow background color for the title box */
+            box-shadow: 5px 5px 10px orange; /* Orange box shadow for the title box */
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .title {
+            font-size: 48px; /* Bigger font size for the title */
+            font-weight: bold; /* Make the title bold */
+            color: white; /* Set title color to white */
+        }
+
+        .input_box {
+            width: 70%; /* Make Celsius and Fahrenheit input boxes wider */
+            margin-left: 15%; /* Adjust margin for better spacing */
+            margin-bottom: 42px;
+        }
+
+        input {
+            width: 100%;
+            height: 50px;
+            border-radius: 9px;
+            border: 2px solid #FF4500; /* Orange border color */
+            outline: none;
+            margin-top: 8px;
+            padding: 0 10px;
+        }
+
+        input:focus {
+            border: 2px dashed #FF0000; /* Red border color when focused */
+            background-color: #FF0000; /* Red background color when focused */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title-box">
+            <label class="title">Temperature Converter</label>
+        </div>
+        <div class="input_box">
+            <label for="celsius">Celsius</label>
+            <input type="number" id="celsius" oninput="celToFar()" placeholder="value">
+        </div>
+        <div class="input_box">
+            <label for="fahrenheit">Fahrenheit</label>
+            <input type="number" id="fahrenheit" oninput="farToCel()" placeholder="value">
+        </div>
+    </div>
+    <script>
+        let celsius = document.getElementById("celsius");
+        let fahrenheit = document.getElementById("fahrenheit");
+
+        function celToFar() {
+            let output = (parseFloat(celsius.value) * 9 / 5) + 32;
+            fahrenheit.value = parseFloat(output.toFixed(2));
+        }
+
+        function farToCel() {
+            let output = (parseFloat(fahrenheit.value) - 32) * 5 / 9;
+            celsius.value = parseFloat(output.toFixed(2));
+            console.log(output);
+        }
+    </script>
+</body>
+</html>
